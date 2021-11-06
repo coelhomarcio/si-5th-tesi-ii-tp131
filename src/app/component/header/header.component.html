@@ -1,0 +1,24 @@
+<header class="bg-d-blue c-white flex center mat-elevation-z4">
+	<div class="flex-c gap8">
+		<h1 class="m0 fs32 fw900 ls4">{{ title }}</h1>
+		<nav class="flex center">
+			<ul class="mmw-240 m0 p8 f-upper ls2 flex sb">
+				<li>
+					<a routerLink="/home" routerLinkActive="linkActive">Home</a>
+				</li>
+				<li>
+					<a routerLink="/list" routerLinkActive="linkActive">Lista</a>
+				</li>
+				<li *ngIf="!authService.authenticated">
+					<a routerLink="/login" routerLinkActive="linkActive">Entrar</a>
+				</li>
+				<li *ngIf="authService.authenticated">
+					<a routerLink="/logout" routerLinkActive="linkActive">Sair</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="end-sy">
+			<span>Olá {{ authService.userEmail }}!</span>
+		</div>
+	</div>
+</header>

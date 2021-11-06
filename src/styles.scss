@@ -1,1 +1,266 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$coelho-firebase-primary: mat.define-palette(mat.$indigo-palette);
+$coelho-firebase-accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$coelho-firebase-warn:    mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$coelho-firebase-theme:   mat.define-light-theme((
+	color: (
+		primary: $coelho-firebase-primary,
+		accent: $coelho-firebase-accent,
+		warn: $coelho-firebase-warn,
+	)
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($coelho-firebase-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+$black:                   #111111;
+$grey:                    #888888;
+$l-grey:                  #CFCFCF;
+$white:                   #F9F9F9;
+$d-blue:                  #03396C;
+$blue:                    #005B96;
+$d-green:                 #34A974;
+$green:                   #47CE90;
+$d-red:                   #BC4A4D;
+$red:                     #F34D61;
+
+* { box-sizing: border-box; }
+
+p { max-width: 55ch; }
+
+html,
+body { width: 100%; max-width: 100%; min-height: 100vh; }
+
+html { font-size: .625rem; scroll-behavior: smooth; background-color: $white; }
+
+body { margin: 0; background-image: radial-gradient($white, $black); font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+header > div,
+main > section,
+footer > div { width: 100%; max-width: 100%; padding: 1.6rem; }
+
+header { height: 16rem; position: sticky; top: 0; z-index: 999; }
+
+header ul { list-style: none; }
+
+header a { padding: .8rem; color: $white; transition: opacity 150ms ease-in-out; }
+
+header a:hover { opacity: .7 }
+
+main > section { width: 100%; height: 100%; min-height: calc(100vh - 28rem); }
+
+footer { height: 12rem; }
+
+//.a-hover-ts { transition: transform 150ms ease-in-out; }
+
+//.a-hover:hover .a-hover-tu { text-decoration: underline; }
+
+//.a-hover:hover .a-hover-ts { transform: scale(1.2); }
+
+.linkActive {
+	border: .1rem solid $white;
+	text-decoration: none;
+}
+
+.w-i { width: inherit !important; }
+.w1 { width: .1rem !important; }
+.w10 { width: 10% !important; }
+.w20 { width: 20% !important; }
+.w30 { width: 30% !important; }
+.w40 { width: 40% !important; }
+.w50 { width: 50% !important; }
+.w60 { width: 60% !important; }
+.w70 { width: 70% !important; }
+.w80 { width: 80% !important; }
+.w90 { width: 90% !important; }
+.w100 { width: 100% !important; }
+.mmw-240 { width: 100%; min-width: 24rem; max-width: 24rem; }
+.h-i { height: inherit !important; }
+.h1 { height: .1rem !important; }
+.h8 { height: .8rem !important; }
+.h16 { height: 1.6rem !important; }
+.h24 { height: 2.4rem !important; }
+.h32 { height: 3.2rem !important; }
+.h40 { height: 4rem !important; }
+.h48 { height: 4.8rem !important; }
+.h56 { height: 5.6rem !important; }
+.h64 { height: 6.4rem !important; }
+.h72 { height: 7.2rem !important; }
+.h80 { height: 8rem !important; }
+.h88 { height: 8.8rem !important; }
+.h96 { height: 9.6rem !important; }
+.h104 { height: 10.4rem !important; }
+.h112 { height: 11.2rem !important; }
+.h120 { height: 12rem !important; }
+.h100vh { height: 100vh !important; }
+.m0 { margin: 0 !important; }
+.m4 { margin: .4rem !important; }
+.m8 { margin: .8rem !important; }
+.m16 { margin: 1.6rem !important; }
+.m24 { margin: 2.4rem !important; }
+.m32 { margin: 3.2rem !important; }
+.mx4 { margin-right: .4rem !important; margin-left: .4rem !important; }
+.mx8 { margin-right: .8rem !important; margin-left: .8rem !important; }
+.mx16 { margin-right: 1.6rem !important; margin-left: 1.6rem !important; }
+.mx24 { margin-right: 2.4rem !important; margin-left: 2.4rem !important; }
+.mx32 { margin-right: 3.2rem !important; margin-left: 3.2rem !important; }
+.my4 { margin-top: .4rem !important; margin-bottom: .4rem !important; }
+.my8 { margin-top: .8rem !important; margin-bottom: .8rem !important; }
+.my16 { margin-top: 1.6rem !important; margin-bottom: 1.6rem !important; }
+.my24 { margin-top: 2.4rem !important; margin-bottom: 2.4rem !important; }
+.my32 { margin-top: 3.2rem !important; margin-bottom: 3.2rem !important; }
+.b0 { border: none !important; }
+.br2 { border-radius: .2rem !important; }
+.br4 { border-radius: .4rem !important; }
+.br8 { border-radius: .8rem !important; }
+.br12 { border-radius: 1.2rem !important; }
+.br16 { border-radius: 1.6rem !important; }
+.br20 { border-radius: 2rem !important; }
+.br24 { border-radius: 2.4rem !important; }
+.p0 { padding: 0 !important; }
+.p4 { padding: .4rem !important; }
+.p8 { padding: .8rem !important; }
+.p16 { padding: 1.6rem !important; }
+.p24 { padding: 2.4rem !important; }
+.p32 { padding: 3.2rem !important; }
+.px4 { padding-right: .4rem !important; padding-left: .4rem !important; }
+.px8 { padding-right: .8rem !important; padding-left: .8rem !important; }
+.px16 { padding-right: 1.6rem !important; padding-left: 1.6rem !important; }
+.px24 { padding-right: 2.4rem !important; padding-left: 2.4rem !important; }
+.px32 { padding-right: 3.2rem !important; padding-left: 3.2rem !important; }
+.py4 { padding-top: .4rem !important; padding-bottom: .4rem !important; }
+.py8 { padding-top: .8rem !important; padding-bottom: .8rem !important; }
+.py16 { padding-top: 1.6rem !important; padding-bottom: 1.6rem !important; }
+.py24 { padding-top: 2.4rem !important; padding-bottom: 2.4rem !important; }
+.py32 { padding-top: 3.2rem !important; padding-bottom: 3.2rem !important; }
+.bg-black { background-color: $black !important; }
+.bg-grey { background-color: $grey !important; }
+.bg-l-grey { background-color: $l-grey !important; }
+.bg-white { background-color: $white !important; }
+.bg-d-blue { background-color: $d-blue !important; }
+.bg-blue { background-color: $blue !important; }
+.bg-d-green { background-color: $d-green !important; }
+.bg-green { background-color: $green !important; }
+.bg-d-red { background-color: $d-red !important; }
+.bg-red { background-color: $red !important; }
+.c-black { color: $black !important; }
+.c-grey { color: $grey !important; }
+.c-l-grey { color: $l-grey !important; }
+.c-white { color: $white !important; }
+.c-d-blue { color: $d-blue !important; }
+.c-blue { color: $blue !important; }
+.c-d-green { color: $d-green !important; }
+.c-green { color: $green !important; }
+.c-d-red { color: $d-red !important; }
+.c-red { color: $red !important; }
+.f-italic { font-style: italic !important; }
+.f-upper { text-transform: uppercase !important; }
+.f-under { text-decoration: underline !important; }
+.f-dec-n { text-decoration: none !important; }
+.fs8 { font-size: .8rem !important; }
+.fs9 { font-size: .9rem !important; }
+.fs10 { font-size: 1rem !important; }
+.fs12 { font-size: 1.2rem !important; }
+.fs14 { font-size: 1.4rem !important; }
+.fs16 { font-size: 1.6rem !important; }
+.fs18 { font-size: 1.8rem !important; }
+.fs20 { font-size: 2rem !important; }
+.fs22 { font-size: 2.2rem !important; }
+.fs24 { font-size: 2.4rem !important; }
+.fs26 { font-size: 2.6rem !important; }
+.fs28 { font-size: 2.8rem !important; }
+.fs30 { font-size: 3rem !important; }
+.fs32 { font-size: 3.2rem !important; }
+.fs36 { font-size: 3.6rem !important; }
+.fs40 { font-size: 4rem !important; }
+.fw100 { font-weight: 100 !important; }
+.fw200 { font-weight: 200 !important; }
+.fw300 { font-weight: 300 !important; }
+.fw400 { font-weight: 400 !important; }
+.fw500 { font-weight: 500 !important; }
+.fw600 { font-weight: 600 !important; }
+.fw700 { font-weight: 700 !important; }
+.fw800 { font-weight: 800 !important; }
+.fw900 { font-weight: 900 !important; }
+.lh8 { line-height: .8rem !important; }
+.lh9 { line-height: .9rem !important; }
+.lh10 { line-height: 1rem !important; }
+.lh12 { line-height: 1.2rem !important; }
+.lh14 { line-height: 1.4rem !important; }
+.lh16 { line-height: 1.6rem !important; }
+.lh18 { line-height: 1.8rem !important; }
+.lh20 { line-height: 2rem !important; }
+.lh22 { line-height: 2.2rem !important; }
+.lh24 { line-height: 2.4rem !important; }
+.lh26 { line-height: 2.6rem !important; }
+.lh28 { line-height: 2.8rem !important; }
+.lh30 { line-height: 3rem !important; }
+.lh32 { line-height: 3.2rem !important; }
+.lh36 { line-height: 3.6rem !important; }
+.lh40 { line-height: 4rem !important; }
+.ls1 { letter-spacing: .1rem !important; }
+.ls2 { letter-spacing: .2rem !important; }
+.ls3 { letter-spacing: .3rem !important; }
+.ls4 { letter-spacing: .4rem !important; }
+.ls5 { letter-spacing: .5rem !important; }
+.cp { cursor: pointer !important; }
+.flex { display: flex !important; flex-direction: row !important; }
+.flex-i { display: inline-flex !important; flex-direction: row !important; }
+.flex-c { display: flex !important; flex-direction: column !important; }
+.flex-ic { display: inline-flex !important; flex-direction: column !important; }
+.flex-w { display: flex !important; flex-wrap: wrap !important; }
+.flex-wc { display: flex !important; flex-wrap: wrap !important; flex-direction: column !important; }
+.center { justify-content: center !important; align-items: center !important; }
+.center-x { justify-content: center !important; }
+.center-y { align-items: center !important; }
+.center-s { justify-self: center !important; align-self: center !important; }
+.center-sx { justify-self: center !important; }
+.center-sy { align-self: center !important; }
+.sb { justify-content: space-between !important; }
+.sa { justify-content: space-around !important; }
+.se { justify-content: space-evenly !important; }
+.start { justify-content: flex-start !important; align-items: flex-start !important; }
+.start-x { justify-content: flex-start !important; }
+.start-y { align-items: flex-start !important; }
+.end { justify-content: flex-end !important; align-items: flex-end !important; }
+.end-x { justify-content: flex-end !important; }
+.end-y { align-items: flex-end !important; }
+.start-sx { justify-self: flex-start !important; }
+.start-sy { align-self: flex-start !important; }
+.end-sx { justify-self: flex-end !important; }
+.end-sy { align-self: flex-end !important; }
+.gap2 { grid-gap: .2rem !important; }
+.gap4 { grid-gap: .4rem !important; }
+.gap8 { grid-gap: .8rem !important; }
+.gap12 { grid-gap: 1.2rem !important; }
+.gap16 { grid-gap: 1.6rem !important; }
+.gap24 { grid-gap: 2.4rem !important; }
+.gap32 { grid-gap: 3.2rem !important; }
+.gap40 { grid-gap: 4rem !important; }
+
+@media (min-width: 768px) {
+	header > div,
+	main > section,
+	footer > div { width: 70%; }
+}

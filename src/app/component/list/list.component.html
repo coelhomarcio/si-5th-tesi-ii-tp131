@@ -1,0 +1,61 @@
+<main class="flex center">
+	<section class="bg-white c-black flex-c">
+		<h2 class="fw700">Lista</h2>
+		<div class="w90 center-sy flex center-x">
+			<div class="flex-c center-y gap16">
+				<div class="mmw-240 flex-c gap8">
+					<h3 class="fw700 flex center-y gap8">
+						<mat-icon>create</mat-icon>
+						<span>Dados</span>
+					</h3>
+					<form #form="ngForm" (ngSubmit)="push(form)" class="w100 flex-c ">
+						<div class="flex-c gap16">
+							<mat-form-field appearance="fill" hideRequiredMarker>
+								<mat-label>Nome</mat-label>
+								<input matInput type="text" name="name"
+								       [formControl]="name" autocomplete="name" required>
+								<mat-error>Informe o seu nome</mat-error>
+							</mat-form-field>
+							<mat-form-field appearance="fill" hideRequiredMarker>
+								<mat-label>Idade</mat-label>
+								<input matInput type="number" name="age"
+								       [formControl]="age" autocomplete="age" required>
+								<mat-error>{{ validateAge() }}</mat-error>
+							</mat-form-field>
+							<button type="submit" mat-raised-button
+							        class="bg-blue c-white fw700 ls4">
+								<span class="flex center gap8">
+									<mat-icon>save</mat-icon>
+									<span class="fw700 f-upper flex center-y gap8">Salvar</span>
+								</span>
+							</button>
+						</div>
+					</form>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="mmw-240 flex-c gap8">
+					<table *ngIf="(databaseService.list | async)?.length">
+						<thead>
+							<tr class="w100 flex">
+								<th class="w50 p4 flex center-y">Nome</th>
+								<th class="w20 p4 flex center-y">Idade</th>
+								<th class="w30 p4 flex center">Remover</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="w100 flex" *ngFor="let item of databaseService.list | async">
+								<td class="w50 p4 flex center-y">{{ item.name }}</td>
+								<td class="w20 p4 flex center-y">{{ item.age }}</td>
+								<td class="w30 p4 c-red flex center">
+									<button mat-icon-button (click)="remove(item.key)">
+										<mat-icon>clear</mat-icon>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

@@ -1,0 +1,66 @@
+<main class="flex center">
+	<section class="bg-white c-black flex-c">
+		<h2 class="fw700">Entrar</h2>
+		<div class="w90 center-sy flex center-x">
+			<div class="flex-c center-y gap16">
+				<div class="mmw-240 flex-c gap8">
+					<h3 class="fw700 flex center-y gap8">
+						<mat-icon>email</mat-icon>
+						<span>E-mail</span>
+					</h3>
+					<form (ngSubmit)="login(true)" class="w100 flex-c ">
+						<div class="flex-c gap16">
+							<mat-form-field appearance="fill" hideRequiredMarker>
+								<mat-label>E-mail</mat-label>
+								<input matInput type="email" name="email"
+								       [formControl]="email" autocomplete="email" required>
+								<mat-error *ngIf="email.invalid">{{ validateEmail() }}</mat-error>
+							</mat-form-field>
+							<mat-form-field appearance="fill" hideRequiredMarker>
+								<mat-label>Password</mat-label>
+								<input matInput type="password" name="password" minlength="8" maxlength="8"
+								       [formControl]="password" autocomplete="password" required>
+								<mat-error *ngIf="password.invalid">
+									<span class="flex-c gap4">
+										<span class="flex sb gap8">
+											<span>{{ validatePassword() }}</span>
+											<span>{{ password.value.length }}/8</span>
+										</span>
+									</span>
+								</mat-error>
+								<mat-hint align="end">{{ password.value.length }}/8</mat-hint>
+							</mat-form-field>
+							<button type="submit" mat-raised-button
+							        class="bg-blue c-white fw700 ls4">
+								<span class="flex center gap8">
+									<mat-icon>login</mat-icon>
+									<span class="fw700 f-upper flex center-y gap8">Login</span>
+								</span>
+							</button>
+						</div>
+					</form>
+					<div class="px8 fw500" *ngIf="authService.authError">
+						<p class="flex center-y gap16">
+							<span class="br4 px8 py4 bg-red c-white fw900 ls2">ERRO</span>
+							<span class="c-red">{{ authService.authError }}</span>
+						</p>
+					</div>
+				</div>
+				<mat-divider></mat-divider>
+				<div class="mmw-240 flex-c gap8">
+					<h3 class="fw700 flex center-y gap8">
+						<mat-icon>alternate_email</mat-icon>
+						<span>E-mail Google</span>
+					</h3>
+					<button (click)="login(false)" mat-raised-button
+					        class="bg-blue c-white fw700 ls4">
+						<span class="flex center gap8">
+							<mat-icon>login</mat-icon>
+							<span class="fw700 f-upper flex center-y gap8">Login Google</span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

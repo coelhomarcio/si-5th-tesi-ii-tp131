@@ -1,0 +1,19 @@
+<main class="flex center">
+	<section class="bg-white c-black flex-c">
+		<h2 class="fw700">Sair</h2>
+		<div class="w90 center-sy flex center-x">
+			<div class="flex-c center-y">
+				<div class="mmw-240 flex-c gap8">
+					<p class="px8">Conta <span class="fw700">{{ authService.userEmail }}</span></p>
+					<button (click)="logout()" mat-raised-button
+					        class="bg-blue c-white fw700 ls4">
+						<span class="flex center gap8">
+							<mat-icon>logout</mat-icon>
+							<span class="fw700 f-upper flex center-y gap8">Logout</span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
